@@ -1,0 +1,11 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block content %}
+
+<img src="{% static 'images/codigorojo.jpg' %}">
+<h1>CODIGO ROJO</h1>
+<p>Diríjase al triage de enfermería mas cercano</p>
+{% if time_left %}
+<p>You can only complete the form once every 12 hours. Time left: {{ time_left }}</p>
+{% endif %}
+{% endblock %}

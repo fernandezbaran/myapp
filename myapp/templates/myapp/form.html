@@ -1,0 +1,70 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block content %}
+<img src="{% static 'images/triage.png' %}">
+<h1>Complete el siguiente formulario indicando sus datos personales y motivo de consulta de consulta. </h1>
+<form method="post">
+    {% csrf_token %}
+    <div>
+        {{ form.nombre.help_text }} {{ form.nombre }}
+
+    </div>
+    <div>
+        {{ form.dni.help_text }} {{ form.dni }}
+
+    </div>
+    <div>
+        {{ form.motivo_de_consulta.help_text }} {{ form.motivo_de_consulta }}
+
+    </div>
+
+<h1>SINTOMAS ASOCIADOS:</h1>
+
+<div>Si presenta uno o mas síntomas enlistados a continuación confirme marcando las casillas correspondientes. Presione enviar y aguarde instrucciones.</div>
+    <div>
+<img src="{% static 'images/sangrado.png' %}" >
+        {{ form.sangrado.help_text }} {{ form.sangrado }}
+
+    </div>
+
+    <div>
+<img src="{% static 'images/question2_image.png' %}" >
+        {{ form.paralisis_facial.help_text }} {{ form.paralisis_facial }}
+        
+    </div>
+
+    <div>
+        {{ form.debilidad_miembros.help_text }} {{ form.debilidad_miembros }}
+        
+    </div>
+
+    <div>
+        {{ form.alteraciones_equilibro.help_text }} {{ form.alteraciones_equilibro }}
+        
+    </div>
+
+    <div>
+        {{ form.alteraciones_visuales.help_text }} {{ form.alteraciones_visuales }}
+        
+    </div>
+
+    <div>
+
+<img src="{% static 'images/question1_image.png' %}" >
+        {{ form.dolor_torax.help_text }} {{ form.dolor_torax }}
+        
+</div>
+    <div>
+        {{ form.dolor_abdominal.help_text }} {{ form.dolor_abdominal }}
+        
+    </div>
+
+
+    <div>
+        {{ form.dolor_abdominal_mayor_50.help_text }} {{ form.dolor_abdominal_mayor_50 }}
+        
+    </div>
+
+    <button class="btn" type="submit">Enviar</button>
+</form>
+{% endblock %}
