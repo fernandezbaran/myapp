@@ -51,7 +51,10 @@ def form_view(request):
                 data_to_send['NOMBRE: '] = response.nombre
                 data_to_send['DNI: '] = response.dni
                 data_to_send['MOTIVO DE CONSULTA: '] = response.motivo_de_consulta
-                requests.post("https://ntfy.sh/triage", data=data_to_send)
+                requests.post("https://ntfy.sh/triage", data=data_to_send, headers={
+        "Title": "CODIGO ROJO",
+        "Tags": "warning,skull"
+    })
                 response.save()
             # Set the session data indicating success
                 request.session['form_submitted'] = True
